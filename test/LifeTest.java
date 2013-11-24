@@ -32,4 +32,13 @@ public class LifeTest {
         int aliveNumber = life.calculateAliveAround();
         assertThat(life.currentStatus(life.status, aliveNumber), is(LifeStatus.died));
     }
+
+    @Test
+    public void shouldDiedWhenThereAreLessThanTwoAliveCell() throws Exception {
+        Life life = new Life();
+        life.status = LifeStatus.alive;
+        life.aliveAround = 1;
+        int aliveNumber = life.calculateAliveAround();
+        assertThat(life.currentStatus(life.status, aliveNumber), is(LifeStatus.died));
+    }
 }
