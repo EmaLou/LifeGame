@@ -22,6 +22,14 @@ public class LifeTest {
         life.aliveAround = 3;
         int aliveNumber = life.calculateAliveAround();
         assertThat(life.currentStatus(life.status, aliveNumber), is(LifeStatus.alive));
+    }
 
+    @Test
+    public void shouldDiedWhenThereAreMoreThanThreeAliveCell() throws Exception {
+        Life life = new Life();
+        life.status = LifeStatus.alive;
+        life.aliveAround = 4;
+        int aliveNumber = life.calculateAliveAround();
+        assertThat(life.currentStatus(life.status, aliveNumber), is(LifeStatus.died));
     }
 }
