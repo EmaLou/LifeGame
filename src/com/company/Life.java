@@ -15,6 +15,9 @@ public class Life {
     }
 
     private boolean isCanLive(Enum lifeStatus, int aliveAround) {
+        if(lifeStatus == LifeStatus.died){
+            return aliveAround == 3;
+        }
         return (aliveAround == 2 || aliveAround == 3) && lifeStatus == LifeStatus.alive;
     }
 
